@@ -30,11 +30,11 @@ jobs:
         pip3 install spotdl
         mkdir dl
         spotdl --playlist ${{ github.event.inputs.url }} --write-to=list.tst
-        spotdl --list list.txt --write-to=dl/
+        spotdl --list list.txt
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         # Artifact name
         name: songs.tar
         # Directory containing files to upload
-        path: "./dl/"
+        path: "./"
