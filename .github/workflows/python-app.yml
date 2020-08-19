@@ -28,7 +28,8 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         sudo apt install ffmpeg
         pip3 install spotdl
-        mkdir dl
+    - name: Download songs
+      run: |
         spotdl --playlist ${{ github.event.inputs.url }} --write-to=list.txt
         spotdl --list list.txt
     - name: Upload artifact
