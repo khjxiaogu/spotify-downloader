@@ -5,7 +5,6 @@
 !!! IF EDITING THE README, ENSURE TO COPY THE WHOLE FILE TO index.md in `/docs/` AND REMOVE THE REFERENCES TO ReadTheDocs THERE.
 --->
 
-<div align="center">
 
 # spotDL v4
 
@@ -19,7 +18,6 @@
 [![Discord](https://img.shields.io/discord/771628785447337985?label=discord&logo=discord&style=flat-square)](https://discord.gg/xCa23pwJWY)
 
 > spotDL: The fastest, easiest and most accurate command-line music downloader.
-</div>
 
 ______________________________________________________________________
 **[Read the documentation on ReadTheDocs!](https://spotdl.readthedocs.io)**
@@ -33,11 +31,10 @@ Refer to our [Installation Guide](https://spotdl.rtfd.io/en/latest/installation/
 ### Python (Recommended Method)
   - _spotDL_ can be installed by running `pip install spotdl`.
   - To update spotDL run `pip install --upgrade spotdl`
-
   > On some systems you might have to change `pip` to `pip3`.
 
-<details>
-    <summary style="font-size:1.25em"><strong>Other options</strong></summary>
+
+### Other options
 
 - Prebuilt executable
   - You can download the latest version from the
@@ -66,11 +63,9 @@ Refer to our [Installation Guide](https://spotdl.rtfd.io/en/latest/installation/
 	git clone https://github.com/spotDL/spotify-downloader && cd spotify-downloader
 	pip install poetry
 	poetry install
-	poetry run python3 scripts/build.py
+	python3 scripts/build.py
 	```
 	An executable is created in `spotify-downloader/dist/`.
-
-</details>
 
 
 ### Installing FFmpeg
@@ -100,20 +95,22 @@ General usage:
 ```sh
 spotdl [operation] [options] QUERY
 ```
+When downloading songs, the song's Spotify Popularity variable [(described here)](https://developer.spotify.com/documentation/web-api/reference/get-track) is stored in metadata as a comment, so you can sort your downloaded songs by popularity.
 
 There are different **operations** spotDL can perform. The *default* is `download`, which simply downloads the songs from YouTube and embeds metadata.
 
 The **query** for spotDL is usually a list of Spotify URLs, but for some operations like **sync**, only a single link or file is required.
 For a list of all **options** use ```spotdl -h```
 
-<details>
-<summary style="font-size:1em"><strong>Supported operations</strong></summary>
+#### Supported operations
 
 - `save`: Saves only the metadata from Spotify without downloading anything.
     - Usage:
         `spotdl save [query] --save-file {filename}.spotdl`
 
 - `web`: Starts a web interface instead of using the command line. However, it has limited features and only supports downloading single songs.
+    - Usage:
+        `spotdl web`
 
 - `url`: Get direct download link for each song from the query.
     - Usage:
@@ -129,7 +126,6 @@ For a list of all **options** use ```spotdl -h```
         `spotdl sync {filename}.spotdl`
 
 - `meta`: Updates metadata for the provided song files.
-
 </details>
 
 ## Music Sourcing and Audio Quality
@@ -143,20 +139,14 @@ spotDL uses YouTube as a source for music downloads. This method is used to avoi
 
 spotDL downloads music from YouTube and is designed to always download the highest possible bitrate; which is 128 kbps for regular users and 256 kbps for YouTube Music premium users.
 
-Check the [Audio Formats](docs/usage.md#audio-formats-and-quality) page for more info.
+Check the [Audio Formats](usage.md#audio-formats-and-quality) page for more info.
 
 ## Contributing
 
-Interested in contributing? Check out our [CONTRIBUTING.md](docs/CONTRIBUTING.md) to find
+Interested in contributing? Check out our [CONTRIBUTING.md](CONTRIBUTING.md) to find
 resources around contributing along with a guide on how to set up a development environment.
-
-### Join our amazing community as a code contributor, and help accelerate
-
-<br><br>
-<a href="https://github.com/spotDL/spotify-downloader/graphs/contributors">
-  <img class="dark-light" src="https://contrib.rocks/image?repo=spotDL/spotify-downloader&anon=0&columns=25&max=100&r=true" />
-</a>
 
 ## License
 
 This project is Licensed under the [MIT](/LICENSE) License.
+
