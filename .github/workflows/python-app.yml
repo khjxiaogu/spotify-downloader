@@ -25,7 +25,7 @@ jobs:
       run: |
         mkdir downloaded
         cd downloaded
-        spotdl --list list.txt
+        spotdl
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
