@@ -20,6 +20,7 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         sudo apt install ffmpeg
+        chmod +x ./scripts/termux.sh
         ./scripts/termux.sh
     - name: Download songs
       run: |
