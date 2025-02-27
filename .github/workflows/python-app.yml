@@ -1,10 +1,6 @@
 name: 'Download From list'
 on:
   workflow_dispatch:
-    inputs:
-      url:
-        description: 'Spotify Playlist url'
-        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,7 +22,7 @@ jobs:
       run: |
         mkdir downloaded
         cd downloaded
-        spotdl query 1
+        spotdl download query 1
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
