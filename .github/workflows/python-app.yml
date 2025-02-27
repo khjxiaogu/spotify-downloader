@@ -25,7 +25,6 @@ jobs:
       run: |
         mkdir downloaded
         cd downloaded
-        spotdl --playlist ${{ github.event.inputs.url }} --write-to=list.txt
         spotdl --list list.txt
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
