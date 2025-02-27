@@ -44,28 +44,6 @@ def console_entry_point():
     """
     Entry point for the console. With profile flag, it runs the code with cProfile.
     """
-url = "https://raw.githubusercontent.com/CrazyKidCN/maimaiDX-CN-songs-database/refs/heads/main/maidata.json"
-
-# 发送HTTP GET请求获取数据
-response = requests.get(url)
-
-# 检查请求是否成功
-if response.status_code == 200:
-    # 解析JSON数据
-    data = json.loads(response.text)
-    
-    # 提取title和artist并拼接成数组
-    result = []
-    for song in data:
-        title = song.get("title", "")
-        artist = song.get("artist", "")
-        result.append(f"{title} {artist}")
-    
-    # 将每个元素单独一行写入list.txt文件
-    with open("list.txt", "w", encoding="utf-8") as f:
-        f.write("\n".join(result))
-else:
-    print(f"请求失败，状态码：{response.status_code}")
     if "--profile" in sys.argv:
         with cProfile.Profile() as profile:
             entry_point()
@@ -177,7 +155,26 @@ def entry_point():
     signal.signal(signal.SIGTERM, graceful_exit)
 
     start_time = time.perf_counter()
-
+    url = "https://raw.githubusercontent.com/CrazyKidCN/maimaiDX-CN-songs-database/refs/heads/main/maidata.json"
+    
+    # 发送HTTP GET请求获取数据
+    response = requests.get(url)
+    result = []
+    # 检查请求是否成功
+    if response.status_code == 200:
+        # 解析JSON数据
+        data = json.loads(response.text)
+        
+        # 提取title和artist并拼接成数组
+        
+        for song in data:
+            title = song.get("title", "")
+            artist = song.get("artist", "")
+            result.append(f"{title} {artist}")
+        
+    else:
+        print(f"请求失败，状态码：{response.status_code}")
+    arguments.query=result
     try:
         # Pick the operation to perform
         # based on the name and run it!
