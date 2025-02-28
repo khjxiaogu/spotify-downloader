@@ -19,11 +19,11 @@ jobs:
         mkdir downloaded
     - name: Decrypt cookies
       run: |
-        gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.COOKIE_PASSPHASE }}" --output ./downloaded/cookies.txt cookies.txt.gpg
+        gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.COOKIE_PASSPHASE }}" --output ../cookies.txt cookies.txt.gpg
     - name: Download songs
       run: |
         cd downloaded
-        spotdl download query 1 --cookie-file ./cookies.txt
+        spotdl download query 1 --cookie-file ../cookies.txt
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
