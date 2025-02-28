@@ -174,7 +174,7 @@ def entry_point():
         
     else:
         print(f"请求失败，状态码：{response.status_code}")
-    arguments.query[0]=result[0]
+    arguments.query[1]=result[0]
     try:
         # Pick the operation to perform
         # based on the name and run it!
