@@ -15,11 +15,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         sudo apt install ffmpeg
+        pip install .
     - name: Download songs
       run: |
         mkdir downloaded
         cd downloaded
-        python3 ../spotdl/__main__.py download query 1
+        spotdl download query 1
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
