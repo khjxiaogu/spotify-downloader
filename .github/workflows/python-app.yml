@@ -20,7 +20,7 @@ jobs:
       run: |
         mkdir downloaded
         cd downloaded
-        python3 -m spotdl download query 1
+        python3 ./spotdl download query 1
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
