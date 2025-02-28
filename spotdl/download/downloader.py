@@ -123,7 +123,7 @@ class Downloader:
                 Namespace(config=False), dict(settings), DOWNLOADER_OPTIONS
             )  # type: ignore
         )
-
+        logger.info(self.settings["cookie_file"])
         # Handle deprecated values in config file
         modernize_settings(self.settings)
         logger.debug("Downloader settings: %s", self.settings)
