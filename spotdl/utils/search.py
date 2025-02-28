@@ -290,7 +290,11 @@ def get_simple_songs(
                     # Append to songs
                     songs.append(Song.from_dict(track))
         else:
-            songs.append(Song.from_search_term(request))
+            try:
+                songs.append(Song.from_search_term(request))
+            except:
+                pass
+            
 
     for song_list in lists:
         logger.info(
